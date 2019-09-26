@@ -1,0 +1,56 @@
+@import "../../../libs/common";
+
+.container {
+  width: 100%;
+  height: @basic-header-height;
+  background: @primary-color;
+}
+
+.logo {
+  position: relative;
+  left:-20px;
+}
+
+.logo-img {
+  //background: url("../../../assets/logo.png") no-repeat center center;
+  background-size: cover;
+  height: 48px;
+  width: 48px;
+  float: left;
+  margin-top: 8px;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 2px;
+  color: #ffffff;
+  padding-left: 70px;
+}
+
+.menus {
+  background: @primary-color;
+  position: absolute;
+  top: 0;
+  right: 5px;
+
+  :global {
+    .ant-menu-item, .ant-menu-submenu-title {
+      line-height: 64px;
+      height: 64px;
+    }
+
+    .ant-menu-submenu {
+      top: 0;
+      margin: 0;
+      border: none;
+    }
+
+    .ant-menu-submenu-selected, .ant-menu-submenu:hover {
+      border: none;
+      margin: 0;
+      top: 0;
+    }
+  }
+}
