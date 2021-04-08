@@ -1,7 +1,6 @@
 const path = require("path");
 
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
-const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const publicPath = process.env.NODE_ENV === "production" ? "" : "/";
@@ -77,22 +76,11 @@ module.exports = {
             // 处理css
             {
                 test: /\.css$/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "postcss-loader",
-                    // 最新的（5.0.0）postcss需要单独写config文件，下面这种写法会报错，可以使用(v3.0.0)
-                    // {
-                    //   loader: 'postcss-loader',
-                    //   options: {
-                    //     plugins: () => [autoprefixer()],  // 浏览器兼容性前缀补全
-                    //   },
-                    // },
-                ],
+                use: ["style-loader", "css-loader"],
             },
             // 处理less
             {
-                test: /\.s[ac]ss$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
                     "style-loader",
@@ -102,9 +90,7 @@ module.exports = {
                             modules: {
                                 localIdentName: SCOPE_NAME,
                             },
-                            importLoaders: 3,
-                            sourceMap: false,
-                        },
+                        }
                     },
                     {
                         loader: "sass-loader",
@@ -146,7 +132,6 @@ module.exports = {
     },
     plugins: [
         new ProgressBarPlugin(), // 进度条
-        new FriendlyErrorsWebpackPlugin(), // 报错信息
         new CleanWebpackPlugin({
             // 清除上次编译的内容
             verbose: true, // Write logs to console.

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react",
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Basic Options */
@@ -65,8 +66,15 @@
     /* Advanced Options */
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
-    "files": [
-      "./global.d.ts" // 申明一个全局的.d.ts
-    ],
-  }
+    "baseUrl": "."
+  },
+  // "include": [
+  //   "src",
+  // ],
+  "typeRoots": [
+    "typings"
+  ],  
+  "files": [
+    "./global.d.ts" // 申明一个全局的.d.ts
+  ],
 }

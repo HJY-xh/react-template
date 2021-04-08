@@ -27,7 +27,7 @@ module.exports = merge(common, {
         new HTMLWebpackPlugin({
             cache: false,
             filename: "index.html",
-            template: path.resolve(__dirname, "../src/index.ejs"),
+            template: path.resolve(__dirname, "../src/index.html"),
             minify: {
                 collapseWhitespace: true, // 折叠空白区域
                 preserveLineBreaks: false,
