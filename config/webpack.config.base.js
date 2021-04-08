@@ -38,6 +38,16 @@ const webpackConfig = {
             // 设置别名指向对应目录
             "@": path.join(__dirname, "../src"),
         },
+        fallback: {
+            console: false,
+            global: false,
+            process: false,
+            Buffer: false,
+            __filename: false,
+            __dirname: false,
+            setImmediate: false,
+            path: false,
+        }
     },
     externals: [nodeExternals()], // 排除对node_modules里的依赖进行打包
     plugins: [
@@ -51,17 +61,6 @@ const webpackConfig = {
                     : JSON.stringify("development"),
         }),
     ],
-    // node下这些选项可以使最初为Node.js环境编写的代码，在其他环境（如浏览器）中运行
-    node: {
-        console: true,
-        global: true,
-        process: true,
-        Buffer: true,
-        __filename: true,
-        __dirname: true,
-        setImmediate: true,
-        path: true,
-    },
 };
 
 module.exports = webpackConfig;
